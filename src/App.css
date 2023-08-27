@@ -16,5 +16,13 @@ body {
 
 .listing {
   font-family: 'Courier New', Courier, monospace;
-  color: rgb(245, 77, 251);
+  color: rgb(0, 0, 0);
+  font-size: larger;
+  font-weight:600;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
