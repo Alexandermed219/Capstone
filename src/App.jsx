@@ -13,6 +13,7 @@ function App() {
 
   return (
     <div className="store-front">
+      <img src="/" alt="" />
       <h1 id="Heading">Transcend Industries</h1>
       <h2 id="Heading">Explore Products</h2>
       <ul className='listing'>
