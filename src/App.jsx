@@ -6,16 +6,20 @@ function App() {
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
-    .then(res => res.json())
-    .then(json => setBase(json))
-    .catch(error => console.error('Error fetching data:', error));
-  },[]);
+      .then(res => res.json())
+      .then(json => setBase(json))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   return (
     <div className="store-front">
       <img src="/" alt="" />
-      <h1 id="Heading">Transcend Industries</h1>
-      <h2 id="Heading">Explore Products</h2>
+      <div className='store'>
+        <h1 id="Heading">Black Label Industries</h1>
+      </div>
+      <div className='store-2'>
+        <h2 id="Heading">Explore Products</h2>
+      </div>
       <ul className='listing'>
         {base.map(post => (
           <li key={post.id}>{post.title}</li>
