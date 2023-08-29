@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import MyPage from './components/MyPage';
 
 function App() {
@@ -17,11 +17,18 @@ function App() {
   return (
     <Router>
       <Switch>
-        {/* Define your routes */}
-        <Route path="/components/my-page">
+        <div id='navbar>'>
+          <nav>
+            <ul>
+              <li>
+                <Link to="/MyPage">My Page</Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <Route path="/components/MyPage">
           <MyPage />
         </Route>
-        {/* Add more routes as needed */}
       </Switch>
 
       <div className="store-front">
