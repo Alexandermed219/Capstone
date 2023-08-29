@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import productpage from './components/Product-page';
+// import { Link } from 'react-router-dom';
+import MyPage from './components/MyPage';
 
 function App() {
   const [base, setBase] = useState([]);
@@ -14,29 +15,31 @@ function App() {
   }, []);
 
   return (
-    <div className="store-front">
-      <img src="/" alt="" />
-      <div className='store'>
-        <h1 id="Heading">Black Label Industries</h1>
+    <Router>
+      <Switch>
+        {/* Define your routes */}
+        <Route path="/components/my-page">
+          <MyPage />
+        </Route>
+        {/* Add more routes as needed */}
+      </Switch>
+
+      <div className="store-front">
+        <img src="/" alt="" />
+        <div className='store'>
+          <h1 id="Heading">Black Label Industries</h1>
+        </div>
+        <div className='store-2'>
+          <h2 id="Heading">Explore Products</h2>
+
+        </div>
+        <ul className='listing'>
+          {base.map(post => (
+            <li key={post.id}>{post.title}</li>
+          ))}
+        </ul>
       </div>
-      <div className='store-2'>
-        <h2 id="Heading">Explore Products</h2>
-        <Router>
-          <Switch>
-            {/* Define your routes */}
-            <Route path="/components/Product-page">
-              <MyPage />
-            </Route>
-            {/* Add more routes as needed */}
-          </Switch>
-        </Router>
-      </div>
-      {/* <ul className='listing'>
-        {base.map(post => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul> */}
-    </div>
+    </Router>
   )
 }
 

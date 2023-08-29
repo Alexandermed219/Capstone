@@ -1,6 +1,7 @@
+// MyPage.js
 import React from 'react';
 
-const productpage = () => {
+const MyPage = () => {
   return (
     <div>
       <h1>Welcome to My Page!</h1>
@@ -9,4 +10,4 @@ const productpage = () => {
   );
 };
 
-export default productpage;
+export default MyPage;
