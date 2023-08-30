@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// import { Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MyPage from './components/MyPage';
 
 function App() {
@@ -16,13 +15,14 @@ function App() {
 
   return (
     <Router>
-      <Switch>
-        {/* Define your routes */}
-        <Route path="/components/my-page">
-          <MyPage />
-        </Route>
-        {/* Add more routes as needed */}
-      </Switch>
+      <div id='container'>
+        <div id='navbar'>
+          <Link to="/MyPage"><h1>My Page</h1></Link>
+        </div>
+        <Routes>
+          <Route path="/MyPage" element={<MyPage />} />
+        </Routes>
+      </div>
 
       <div className="store-front">
         <img src="/" alt="" />
