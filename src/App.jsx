@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './App.css'
+import './App.css';
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import MyPage from './components/MyPage';
 
@@ -16,8 +16,19 @@ function App() {
   return (
     <Router>
       <div id='container'>
+        
+      <div className="store-front">
+          <img src="/" alt="" />
+          <div className='store'>
+            <h1 id="Heading">Black Label Industries</h1>
+          </div>
         <div id='navbar'>
-          <Link to="/MyPage"><h1>My Page</h1></Link>
+          <Link to="/MyPage">
+            <h1 id='nav-style'>Explore Products</h1>
+          </Link>
+          <Link to={"/"}>
+            <h1 id='nav-style'>Home</h1>
+          </Link>
         </div>
         <Routes>
           <Route path="/MyPage" element={<MyPage />} />
@@ -25,22 +36,19 @@ function App() {
       </div>
 
       <div className="store-front">
-        <img src="/" alt="" />
-        <div className='store'>
-          <h1 id="Heading">Black Label Industries</h1>
-        </div>
-        <div className='store-2'>
-          <h2 id="Heading">Explore Products</h2>
-
-        </div>
+        {/* Other content */}
         <ul className='listing'>
-          {base.map(post => (
-            <li key={post.id}>{post.title}</li>
+          {base.map(product => (
+            <li key={product.id}>
+              <img src={product.image} alt={product.title} />
+              <p>{product.title}</p>
+            </li>
           ))}
         </ul>
+      </div>
       </div>
     </Router>
   )
 }
 
-export default App
+export default App;
