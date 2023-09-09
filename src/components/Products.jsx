@@ -49,7 +49,7 @@ const Products = () => {
         ))}
       </ul>
       <Routes>
-        <Route path="/Cart" element={<ShoppingCart />} />
+        <Route path="./Cart" element={<ShoppingCart />} />
       </Routes>
     </div>
   );

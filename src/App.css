@@ -16,6 +16,8 @@ body {
   text-decoration: underline white;
   padding-bottom: 30px;
   margin: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .store-2 {
@@ -23,7 +25,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: black;
-  
+
 }
 
 .listing {
@@ -35,7 +37,7 @@ body {
   opacity: .9;
   max-height: 1700px;
   overflow-y: scroll;
-padding-top: 50px;
+  padding-top: 50px;
 
 }
 
@@ -79,8 +81,9 @@ ul {
   margin-left: 460px;
   border-radius: 10px;
 }
-.shop-cart:hover{
-   background-color: rgb(2, 68, 3);
+
+.shop-cart:hover {
+  background-color: rgb(2, 68, 3);
   border-color: white;
 }
 
@@ -98,4 +101,3 @@ ul {
   height: 35px;
   position: static;
 }
-
