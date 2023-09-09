@@ -18,6 +18,7 @@ function App() {
           <img src="/" alt="" />
           <div className='store'>
             <h1>Black Label Industries</h1>
+            
           </div>
           <div id='navbar'>
             <Link to={"/"}>

@@ -1,6 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
-
+import { Cart, Cart3 } from 'react-bootstrap-icons';
+import { CartPlus } from 'react-bootstrap-icons';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -18,10 +19,10 @@ const Products = () => {
   };
 
   return (
-    
+
     <div>
-      <div>
-        <h2>Shopping Cart</h2>
+      <div className='shop-cart'>
+        <h2>Shopping Cart <Cart3 /></h2>
         <ul>
           {cart.map((cartItem, index) => (
             <li key={index}>{cartItem.title}</li>
@@ -39,13 +40,11 @@ const Products = () => {
             <h3>{product.title}</h3>
             <p>Price: ${product.price}</p>
             <p>Description: {product.description}</p>
-            {/* Add to Cart button */}
-            <button onClick={() => addToCart(product)}>Add to Cart</button>
+            <button className='add-to-cart-button' onClick={() => addToCart(product)}>Add to Cart <CartPlus /></button>
           </li>
         ))}
       </ul>
-      {/* Cart section */}
-      
+
     </div>
   );
 };

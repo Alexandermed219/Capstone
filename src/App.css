@@ -35,6 +35,7 @@ body {
   opacity: .9;
   max-height: 1700px;
   overflow-y: scroll;
+
 }
 
 ul {
@@ -64,4 +65,25 @@ ul {
   flex-direction: column;
   align-items: center;
   min-width: 200px;
+}
+
+.shop-cart {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  color: white;
+  font-size: 150%;
+  display: flex;
+  justify-content: center;
+  width: 500px;
+  margin-left: 460px;
+  border-radius: 10px;
+}
+
+.add-to-cart-button {
+  margin-bottom: 100px;
+  opacity: 1;
+}
+
+.add-to-cart-button:hover {
+  background-color: rgb(2, 68, 2);
 }
