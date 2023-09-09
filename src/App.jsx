@@ -4,8 +4,11 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Products from './components/Products';
 import Home from './components/Home';
 import { SearchBar } from './components/SearchBar';
+import { SearchResultsList } from './components/SearchResultsList';
 
 function App() {
+
+  const [results, setResults] = useState([]);
 
   return (
     <Router>
@@ -23,9 +26,10 @@ function App() {
             <Link to="/Products">
               <h1 id='nav-style'>Explore Products</h1>
             </Link>
+            
             <div className='search-bar-container'>
-              <SearchBar/>
-              <div>SearchResults</div>
+              <SearchBar setResults={setResults} />
+              <SearchResultsList results={results} />
             </div>
 
           </div>

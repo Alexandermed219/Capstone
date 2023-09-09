@@ -1,12 +1,39 @@
 import React from 'react'
-import {FaSearch} from "react-icons/fa"
+import { useState } from 'react';
+import { FaSearch } from "react-icons/fa"
 import './SearchBar.css';
+import { json } from 'react-router-dom';
+import Products from './Products';
 
-export const SearchBar = () => {
+export const SearchBar = ({ setResults }) => {
+    const [input, setInput] = useState("")
+
+    const fetchData = (value) => {
+        fetch('https://fakestoreapi.com/products?sort=asc')
+            .then((Response) => Response.json())
+            .then(json => {
+                const results = json.filter((Products) => {
+                    return value &&
+                        Products &&
+                        Products.title &&
+                        Products.title.toLowerCase().includes(value);
+                });
+                setResults(results);
+            });
+
+    }
+    const handleChange = (value) => {
+        setInput(value)
+        fetchData(value)
+    }
+
     return (
         <div className='input-wrapper'>
-        <FaSearch id='search-icon' size={24}/>
-         <input placeholder='Search Here' type="text" />
+            <FaSearch id='search-icon' size={24} />
+            <input placeholder='Search Here'
+                type="text"
+                value={input}
+                onChange={(e) => handleChange(e.target.value)} />
         </div>
     )
 }
