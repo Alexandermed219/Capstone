@@ -5,6 +5,9 @@ import Products from './components/Products';
 import Home from './components/Home';
 import { SearchBar } from './components/SearchBar';
 import { SearchResultsList } from './components/SearchResultsList';
+import { House } from 'react-bootstrap-icons';
+import { Cart } from 'react-bootstrap-icons';
+
 
 function App() {
 
@@ -22,10 +25,10 @@ function App() {
           </div>
           <div id='navbar'>
             <Link to={"/"}>
-              <h1 id='nav-style'>Home</h1>
+              <h1 id='nav-style'><House id='house-icon' />Home</h1>
             </Link>
             <Link to="/Products">
-              <h1 id='nav-style'>Explore Products</h1>
+              <h1 id='nav-style'><Cart id='house-icon' />Explore Products</h1>
             </Link>
             
             <div className='search-bar-container'>

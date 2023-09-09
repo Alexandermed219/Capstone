@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { Cart, Cart3 } from 'react-bootstrap-icons';
+import {  Bag } from 'react-bootstrap-icons';
 import { CartPlus } from 'react-bootstrap-icons';
 
 const Products = () => {
@@ -22,7 +22,7 @@ const Products = () => {
 
     <div>
       <div className='shop-cart'>
-        <h2>Shopping Cart <Cart3 /></h2>
+        <h2>Shopping Cart <Bag /></h2>
         <ul>
           {cart.map((cartItem, index) => (
             <li key={index}>{cartItem.title}</li>

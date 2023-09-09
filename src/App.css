@@ -16,7 +16,6 @@ body {
   text-decoration: underline white;
   padding-bottom: 30px;
   margin: 0px;
-
 }
 
 .store-2 {
@@ -24,6 +23,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: black;
+  
 }
 
 .listing {
@@ -35,6 +35,7 @@ body {
   opacity: .9;
   max-height: 1700px;
   overflow-y: scroll;
+padding-top: 50px;
 
 }
 
@@ -47,7 +48,7 @@ ul {
   font-family: 'Courier New', Courier, monospace;
   background-color: black;
   color: white;
-
+  padding-left: 10px;
 
 }
 
@@ -86,4 +87,11 @@ ul {
 
 .add-to-cart-button:hover {
   background-color: rgb(2, 68, 3);
+  border-color: white;
 }
+
+#house-icon {
+  height: 35px;
+  position: static;
+}
+
