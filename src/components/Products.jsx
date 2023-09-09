@@ -1,7 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import {  Bag } from 'react-bootstrap-icons';
+import { Bag } from 'react-bootstrap-icons';
 import { CartPlus } from 'react-bootstrap-icons';
+import ShoppingCart from './Cart';
+import { Link, Routes, Route } from 'react-router-dom';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -21,8 +23,10 @@ const Products = () => {
   return (
 
     <div>
-      <div className='shop-cart'>
-        <h2>Shopping Cart <Bag /></h2>
+      <div >
+        <Link to="./Cart">
+          <button className='shop-cart'><h2>Shopping Cart <Bag /></h2></button>
+        </Link>
         <ul>
           {cart.map((cartItem, index) => (
             <li key={index}>{cartItem.title}</li>
@@ -44,7 +48,9 @@ const Products = () => {
           </li>
         ))}
       </ul>
-
+      <Routes>
+        <Route path="/Cart" element={<ShoppingCart />} />
+      </Routes>
     </div>
   );
 };

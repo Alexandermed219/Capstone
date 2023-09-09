@@ -30,7 +30,7 @@ export const SearchBar = ({ setResults }) => {
     return (
         <div className='input-wrapper'>
             <FaSearch id='search-icon' size={24} />
-            <input placeholder='Search Here'
+            <input placeholder='Search Products'
                 type="text"
                 value={input}
                 onChange={(e) => handleChange(e.target.value)} />

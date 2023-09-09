@@ -21,7 +21,7 @@ function App() {
           <img src="/" alt="" />
           <div className='store'>
             <h1>Black Label Industries</h1>
-            
+
           </div>
           <div id='navbar'>
             <Link to={"/"}>
@@ -30,7 +30,9 @@ function App() {
             <Link to="/Products">
               <h1 id='nav-style'><Cart id='house-icon' />Explore Products</h1>
             </Link>
-            
+            <div>
+            </div>
+
             <div className='search-bar-container'>
               <SearchBar setResults={setResults} />
               <SearchResultsList results={results} />
