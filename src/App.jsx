@@ -37,7 +37,7 @@ function App() {
               <SearchBar setResults={setResults} />
               <SearchResultsList results={results} />
             </div>
-
+            
           </div>
           <Routes>
             <Route path="/Products" element={<Products />} />

@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
-import { Bag } from 'react-bootstrap-icons';
+import Shopbtn from './Shopbtn';
 import { CartPlus } from 'react-bootstrap-icons';
-import ShoppingCart from './Cart';
-import { Link, Routes, Route } from 'react-router-dom';
+
+
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -16,22 +16,11 @@ const Products = () => {
       .catch(error => console.error('Error fetching data:', error));
   }, []);
 
-  const addToCart = (product) => {
-    setCart([...cart, product]);
-  };
-
   return (
 
     <div>
-      <div >
-        <Link to="./Cart">
-          <button className='shop-cart'><h2>Shopping Cart <Bag /></h2></button>
-        </Link>
-        <ul>
-          {cart.map((cartItem, index) => (
-            <li key={index}>{cartItem.title}</li>
-          ))}
-        </ul>
+      <div>
+        <Shopbtn cart={cart} /> {/* Pass the cart state as a prop */}
       </div>
       <ul className='listing'>
         {products.map((product) => (
@@ -44,13 +33,12 @@ const Products = () => {
             <h3>{product.title}</h3>
             <p>Price: ${product.price}</p>
             <p>Description: {product.description}</p>
-            <button className='add-to-cart-button' onClick={() => addToCart(product)}>Add to Cart <CartPlus /></button>
+            <button className='add-to-cart-button' onClick={() => addToCart(product)}>Add to Cart <CartPlus />
+            </button>
           </li>
         ))}
       </ul>
-      <Routes>
-        <Route path="./Cart" element={<ShoppingCart />} />
-      </Routes>
+
     </div>
   );
 };
