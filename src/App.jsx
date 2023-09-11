@@ -7,7 +7,7 @@ import { SearchBar } from './components/SearchBar';
 import { SearchResultsList } from './components/SearchResultsList';
 import { House } from 'react-bootstrap-icons';
 import { Cart } from 'react-bootstrap-icons';
-
+import ShoppingCart from './components/Cart';
 
 function App() {
 
@@ -37,11 +37,12 @@ function App() {
               <SearchBar setResults={setResults} />
               <SearchResultsList results={results} />
             </div>
-            
+
           </div>
           <Routes>
             <Route path="/Products" element={<Products />} />
             <Route path="/" element={<Home />} />
+            <Route path="/Cart" element={< ShoppingCart />} />
           </Routes>
         </div>
       </div>
