@@ -6,21 +6,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState([]);
 
-  const saveCartToLocalStorage = (cartItems) => {
-    localStorage.setItem('cart', JSON.stringify(cartItems));
-  };
-
-  const getCartFromLocalStorage = () => {
-    const storedCart = localStorage.getItem('cart');
-    return storedCart ? JSON.parse(storedCart) : [];
-  };
-
   useEffect(() => {
-    const initialCart = getCartFromLocalStorage();
-    if (initialCart.length > 0) {
-      setCart(initialCart);
-    }
-
     fetch('https://fakestoreapi.com/products?sort=asc')
       .then((res) => res.json())
       .then((data) => setProducts(data))
@@ -30,7 +16,6 @@ const Products = () => {
   const addToCart = (product) => {
     const updatedCart = [...cart, product];
     setCart(updatedCart);
-    saveCartToLocalStorage(updatedCart);
   };
 
   return (
@@ -51,8 +36,7 @@ const Products = () => {
             <p>Description: {product.description}</p>
             <button
               className="add-to-cart-button"
-              onClick={() => addToCart(product)}
-            >
+              onClick={() => addToCart(product)}>
               Add to Cart <CartPlus />
             </button>
           </li>

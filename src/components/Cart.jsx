@@ -1,10 +1,10 @@
 import React from "react";
+import { CartCheck } from "react-bootstrap-icons";
 
-
- export const ShoppingCart = ({ cartItems, removeFromCart }) => {
+ export const ShoppingCart = () => {
   return (
-    <div>
-      <h1>Shopping Cart</h1>
+    <div className="carted">
+      <h1 >Shopping Cart<CartCheck id="cart-icon" /></h1>
 
     </div>
   );

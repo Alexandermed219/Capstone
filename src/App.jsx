@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import './components/Cart.css'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Products from './components/Products';
 import Home from './components/Home';

@@ -57,7 +57,7 @@ ul {
 .product-image {
   width: 200px;
   height: auto;
-  /* Other styles if needed */
+
 }
 
 .search-bar-container {
@@ -87,6 +87,10 @@ ul {
   border-color: white;
 }
 
+#bag-icon {
+  top:10-px
+}
+
 .add-to-cart-button {
   margin-bottom: 100px;
   opacity: 1;
@@ -98,6 +102,8 @@ ul {
 }
 
 #house-icon {
-  height: 35px;
-  position: static;
+  height: 40px;
+  position: relative;
+  top: 3px;
 }
+
