@@ -10,8 +10,9 @@ import { House } from 'react-bootstrap-icons';
 import { Cart } from 'react-bootstrap-icons';
 import ShoppingCart from './components/Cart';
 
-function App() {
 
+function App() {
+  const [cart, setCart] = useState([]);
   const [results, setResults] = useState([]);
 
   return (
@@ -41,7 +42,7 @@ function App() {
 
           </div>
           <Routes>
-            <Route path="/Products" element={<Products />} />
+          <Route path="/Products" element={<Products cart={cart} setCart={setCart} />} />
             <Route path="/" element={<Home />} />
             <Route path="/Cart" element={< ShoppingCart />} />
           </Routes>
