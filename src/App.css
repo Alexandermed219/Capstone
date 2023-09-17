@@ -6,6 +6,19 @@ body {
   height: 100%;
   border: 11px solid black;
   padding: 12px;
+
+}
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .store {
@@ -18,6 +31,7 @@ body {
   margin: 0px;
   padding-left: 20px;
   padding-right: 20px;
+  animation: fadeIn 1s;
 }
 
 .store-2 {
@@ -38,7 +52,7 @@ body {
   max-height: 1700px;
   overflow-y: scroll;
   padding-top: 50px;
-
+  animation: fadeIn 4s;
 }
 
 ul {
@@ -51,7 +65,7 @@ ul {
   background-color: black;
   color: white;
   padding-left: 10px;
-
+  animation: fadeIn 4s;
 }
 
 .product-image {
@@ -71,24 +85,31 @@ ul {
 }
 
 .shop-cart {
+  display: flex;
+  justify-content: center;
+
+}
+
+#shop-cart-btn {
   font-family: 'Courier New', Courier, monospace;
   background-color: black;
   color: white;
-  font-size: 150%;
-  display: flex;
-  justify-content: center;
-  width: 500px;
-  margin-left: 460px;
   border-radius: 10px;
+  font-size: 150%;
+  width: 460px;
+  animation: fadeIn 4s
 }
 
-.shop-cart:hover {
+#shop-cart-btn:hover {
   background-color: rgb(2, 68, 3);
   border-color: white;
+  transition: 0.7s;
 }
 
 #bag-icon {
- top: 12px;
+  height: 40px;
+  position: relative;
+  top: 6px;
 }
 
 .add-to-cart-button {
@@ -99,6 +120,7 @@ ul {
 .add-to-cart-button:hover {
   background-color: rgb(2, 68, 3);
   border-color: white;
+  transition: 0.7s;
 }
 
 #house-icon {
@@ -106,4 +128,3 @@ ul {
   position: relative;
   top: 3px;
 }
-

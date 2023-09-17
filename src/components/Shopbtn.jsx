@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const Shopbtn = ({ cart }) => { 
     
     return (
-        <div>
+        <div className='shop-cart'>
             <Link to="/Cart"> 
-                <button className='shop-cart'><h2>Shopping Cart ({cart.length}) <Bag id="bag-icon" /></h2></button>
+                <button id="shop-cart-btn" ><h2>Shopping Cart({cart.length})<Bag id="bag-icon" /></h2></button>
             </Link>
             <ul>
                 {cart.map((cartItem, index) => (

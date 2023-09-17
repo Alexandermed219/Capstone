@@ -8,9 +8,20 @@
     display: flex;
     align-items: center;
     font-family: 'Courier New', Courier, monospace;
+    animation: fadeIn 4s;
 }
 
-input{
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+input {
     background-color: black;
     border: none;
     height: 90%;
