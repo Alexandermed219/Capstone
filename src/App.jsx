@@ -4,7 +4,6 @@ import './components/Cart.css'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Products from './components/Products';
 import Home from './components/Home';
-
 import { House } from 'react-bootstrap-icons';
 import { Cart } from 'react-bootstrap-icons';
 import ShoppingCart from './components/Cart';
@@ -16,7 +15,7 @@ import { PersonPlus } from 'react-bootstrap-icons';
 
 function App() {
   const [cart, setCart] = useState([]);
- 
+
 
   return (
     <Router>
@@ -35,14 +34,13 @@ function App() {
               <h1 id='nav-style'><Cart id='nav-icon' />Explore Products</h1>
             </Link>
             <Link to="/Login">
-            <h1 id='nav-style'><PersonCheck id='nav-icon' />Log In</h1>
+              <h1 id='nav-style'><PersonCheck id='nav-icon' />Log In</h1>
             </Link>
             <Link to="/Sign-up">
-            <h1 id='nav-style'><PersonPlus id='nav-icon' />Sign Up</h1>
+              <h1 id='nav-style'><PersonPlus id='nav-icon' />Sign Up</h1>
             </Link>
             <div>
             </div>
-
 
           </div>
           <Routes>

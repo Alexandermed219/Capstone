@@ -74,6 +74,7 @@ ul {
   color: white;
   padding-left: 10px;
   animation: fadeIn 6s;
+  font-size: 40px;
 }
 
 .product-image {
