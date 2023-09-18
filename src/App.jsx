@@ -19,11 +19,10 @@ function App() {
     <Router>
       <div id='container'>
 
-        <div className="store-front">
+        <div className="store-front" >
           <img src="/" alt="" />
           <div className='store'>
-            <h1>Black Label Industries</h1>
-
+            <h1>✮✮✮ Black Label Industries ✮✮✮</h1>
           </div>
           <div id='navbar'>
             <Link to={"/"}>
@@ -44,7 +43,7 @@ function App() {
           <Routes>
           <Route path="/Products" element={<Products cart={cart} setCart={setCart} />} />
             <Route path="/" element={<Home />} />
-            <Route path="/Cart" element={< ShoppingCart />} />
+            <Route path="/Cart" element={< ShoppingCart  cart={cart} setCart={setCart}/>} />
           </Routes>
         </div>
       </div>

@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
 body {
   background-image: url(assets/Images/cover-pic.jpg);
   background-repeat: no-repeat;
@@ -26,7 +28,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: black;
-  text-decoration: underline white;
+ 
   padding-bottom: 30px;
   margin: 0px;
   padding-left: 20px;
@@ -127,4 +129,14 @@ ul {
   height: 40px;
   position: relative;
   top: 3px;
+}
+
+#star-icon {
+  height: 40px;
+  position: relative;
+  top: 12px;
+}
+
+#customer-rate {
+  font-family: 'Montserrat', sans-serif;
 }

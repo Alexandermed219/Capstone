@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Shopbtn from './Shopbtn';
 import { CartPlus } from 'react-bootstrap-icons';
+import { Star } from 'react-bootstrap-icons';
 
 const Products = ({ cart, setCart }) => {
   const [products, setProducts] = useState([]);
@@ -14,13 +15,16 @@ const Products = ({ cart, setCart }) => {
   }, []);
 
   const addToCart = (product) => {
-    const updatedCart = [...cart, product];
-    setCart(updatedCart);
+    const updatedCart = {
+      ...product,
+      quantity: 1
+    }
+    setCart([...cart, updatedCart]);
   };
 
   return (
     <div>
-      
+
       <div>
         <Shopbtn cart={cart} />
       </div>
@@ -33,6 +37,7 @@ const Products = ({ cart, setCart }) => {
               style={{ width: '200px', height: 'auto' }}
             />
             <h3>{product.title}</h3>
+            <h3 id='customer-rate'><Star id='star-icon' /> Customer Rating : {product.rating.rate}</h3>
             <p>Price: ${product.price}</p>
             <p>Description: {product.description}</p>
             <button
