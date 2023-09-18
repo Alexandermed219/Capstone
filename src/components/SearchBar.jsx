@@ -2,8 +2,6 @@ import React from 'react'
 import { useState } from 'react';
 import { FaSearch } from "react-icons/fa"
 import './SearchBar.css';
-import { json } from 'react-router-dom';
-import Products from './Products';
 
 export const SearchBar = ({ setResults }) => {
     const [input, setInput] = useState("")
