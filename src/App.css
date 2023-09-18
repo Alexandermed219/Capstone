@@ -43,6 +43,13 @@ body {
 
 }
 
+.log-sign-css {
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
 .listing {
   font-family: 'Courier New', Courier, monospace;
   color: rgb(255, 255, 255);
@@ -66,7 +73,7 @@ ul {
   background-color: black;
   color: white;
   padding-left: 10px;
-  animation: fadeIn 8s;
+  animation: fadeIn 6s;
 }
 
 .product-image {
@@ -125,7 +132,7 @@ ul {
   transition: 0.7s;
 }
 
-#house-icon {
+#nav-icon {
   height: 40px;
   position: relative;
   top: 3px;
