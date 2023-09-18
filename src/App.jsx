@@ -4,8 +4,7 @@ import './components/Cart.css'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Products from './components/Products';
 import Home from './components/Home';
-import { SearchBar } from './components/SearchBar';
-import { SearchResultsList } from './components/SearchResultsList';
+
 import { House } from 'react-bootstrap-icons';
 import { Cart } from 'react-bootstrap-icons';
 import ShoppingCart from './components/Cart';
@@ -17,7 +16,7 @@ import { PersonPlus } from 'react-bootstrap-icons';
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [results, setResults] = useState([]);
+ 
 
   return (
     <Router>
@@ -44,10 +43,6 @@ function App() {
             <div>
             </div>
 
-            <div className='search-bar-container'>
-              <SearchBar setResults={setResults} />
-              <SearchResultsList results={results} />
-            </div>
 
           </div>
           <Routes>

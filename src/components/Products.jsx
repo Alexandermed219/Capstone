@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import Shopbtn from './Shopbtn';
+import { SearchBar } from './SearchBar';
+import { SearchResultsList } from './SearchResultsList';
 import { CartPlus } from 'react-bootstrap-icons';
 import { Star } from 'react-bootstrap-icons';
 
+
+
 const Products = ({ cart, setCart }) => {
   const [products, setProducts] = useState([]);
-
+  const [results, setResults] = useState([]);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products?sort=asc')
@@ -25,6 +29,10 @@ const Products = ({ cart, setCart }) => {
   return (
     <div>
 
+      <div className='search-bar-container'>
+        <SearchBar setResults={setResults} />
+        <SearchResultsList results={results} />
+      </div>
       <div>
         <Shopbtn cart={cart} />
       </div>
