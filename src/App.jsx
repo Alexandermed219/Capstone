@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import './components/Cart.css'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";

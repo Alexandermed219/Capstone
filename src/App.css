@@ -11,8 +11,6 @@ body {
 
 }
 
-
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -81,6 +79,25 @@ ul {
   width: 200px;
   height: auto;
 
+}
+.cate-list {
+  display: flex;
+  justify-content: center;
+}
+
+#cate-drop{
+  background-color: black;
+  width: 100%;
+  border-radius: 10px;
+  height: 3.5rem;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px white;
+  display: flex;
+  align-items: center;
+  font-family: 'Courier New', Courier, monospace;
+  animation: fadeIn 4s;
+  width: 300px;
+  font-size: 1.50rem;
 }
 
 .search-bar-container {

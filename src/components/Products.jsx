@@ -10,13 +10,21 @@ import { Star } from 'react-bootstrap-icons';
 const Products = ({ cart, setCart }) => {
   const [products, setProducts] = useState([]);
   const [results, setResults] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products?sort=asc')
       .then((res) => res.json())
-      .then((data) => setProducts(data))
+      .then((data) => {
+        setProducts(data);
+        const categories = data.map(product => product.category);
+        const specCategory = [...new Set(categories)];
+        setCategories(specCategory);
+      })
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
+
 
   const addToCart = (product) => {
     const updatedCart = {
@@ -26,8 +34,24 @@ const Products = ({ cart, setCart }) => {
     setCart([...cart, updatedCart]);
   };
 
+  function selectCategory(e) {
+    setSelectedCategory(e.target.value);
+  }
+
+  let sortedProducts = products;
+  if (selectedCategory !== 'all') {
+    sortedProducts = products.filter(product => product.category === selectedCategory);
+  }
   return (
     <div>
+      <div className='cate-list'>
+        <select id='cate-drop' onChange={selectCategory} >
+          <option value="all">All</option>
+          {categories.map(category => (
+            <option value={category} key={category}>{category}</option>
+          ))}
+        </select>
+      </div>
 
       <div className='search-bar-container'>
         <SearchBar setResults={setResults} />
@@ -37,7 +61,7 @@ const Products = ({ cart, setCart }) => {
         <Shopbtn cart={cart} />
       </div>
       <ul className="listing">
-        {products.map((product) => (
+        {sortedProducts.map((product) => (
           <li key={product.id}>
             <img
               src={product.image}
