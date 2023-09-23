@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import Shopbtn from './Shopbtn';
 import { SearchBar } from './SearchBar';
-import { SearchResultsList } from './SearchResultsList';
 import { CartPlus } from 'react-bootstrap-icons';
 import { Star } from 'react-bootstrap-icons';
+import { Link } from 'react-router-dom';
 
 
 
 const Products = ({ cart, setCart }) => {
   const [products, setProducts] = useState([]);
-  const [results, setResults] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
 
@@ -52,10 +51,10 @@ const Products = ({ cart, setCart }) => {
           ))}
         </select>
       </div>
-
       <div className='search-bar-container'>
-        <SearchBar setResults={setResults} />
-        <SearchResultsList results={results} />
+        <SearchBar />
+      </div>
+      <div className='search-bar-container'>
       </div>
       <div>
         <Shopbtn cart={cart} />
@@ -63,20 +62,22 @@ const Products = ({ cart, setCart }) => {
       <ul className="listing">
         {sortedProducts.map((product) => (
           <li key={product.id}>
-            <img
-              src={product.image}
-              alt={product.title}
-              style={{ width: '200px', height: 'auto' }}
-            />
-            <h3>{product.title}</h3>
+            <Link to={`/product/${product.id}`}>
+              <img
+                src={product.image}
+                alt={product.title}
+                style={{ width: '200px', height: 'auto' }}
+              />
+              <h3>{product.title}</h3>
+            </Link>
             <h3 id='customer-rate'><Star id='star-icon' /> Customer Rating : {product.rating.rate}</h3>
             <p>Price: ${product.price}</p>
-            <p>Description: {product.description}</p>
             <button
               className="add-to-cart-button"
               onClick={() => addToCart(product)}>
               Add to Cart <CartPlus />
             </button>
+
           </li>
         ))}
       </ul>

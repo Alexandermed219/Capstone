@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
-import './components/Cart.css'
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Products from './components/Products';
 import Home from './components/Home';
@@ -11,6 +9,9 @@ import Signupform from './components/Sign-up';
 import LoginForm from './components/Login';
 import { PersonCheck } from 'react-bootstrap-icons';
 import { PersonPlus } from 'react-bootstrap-icons';
+import SingleProduct from './components/SingleProduct';
+import './App.css';
+import './components/Cart.css'
 
 
 function App() {
@@ -44,6 +45,9 @@ function App() {
 
           </div>
           <Routes>
+            <Route path="/product/:productId">
+              <Route path="/product/:productId" element={<SingleProduct />} />
+            </Route>
             <Route path="/Products" element={<Products cart={cart} setCart={setCart} />} />
             <Route path="/" element={<Home />} />
             <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} />} />
@@ -52,7 +56,7 @@ function App() {
           </Routes>
         </div>
       </div>
-    </Router>
+    </Router >
   )
 }
 
