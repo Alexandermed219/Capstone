@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { PersonCheck } from 'react-bootstrap-icons';
-import { userName } from '../API/API'; // Assuming this function handles the API call.
 
 
 
-const Signupform = () => {
+const LoginForm = ({token, setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -24,20 +23,13 @@ const Signupform = () => {
       });
 
       if (response.ok) {
-        // Authentication successful
         const json = await response.json();
-
-        // Assuming the response contains a token
         const token = json.token;
 
-        // You can store the token in local storage or a state variable
-        // For example, you can use localStorage to store the token:
         localStorage.setItem('token', token);
-
-        // Handle successful login (e.g., redirect to another page)
+        setToken(token);
         console.log(token);
       } else {
-        // Authentication failed, handle error (e.g., show an error message)
         console.error('Login failed');
       }
     } catch (error) {
@@ -75,4 +67,4 @@ const Signupform = () => {
   );
 };
 
-export default Signupform;
+export default LoginForm;

@@ -16,7 +16,7 @@ import './components/Cart.css'
 
 function App() {
   const [cart, setCart] = useState([]);
-
+  const [token, setToken] = useState(null);
 
   return (
     <Router>
@@ -51,8 +51,8 @@ function App() {
             <Route path="/Products" element={<Products cart={cart} setCart={setCart} />} />
             <Route path="/" element={<Home />} />
             <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} Products={Products} />} />
-            <Route path="/Login" element={< LoginForm />} />
-            <Route path="/Sign-up" element={< Signupform />} />
+            <Route path="/Login" element={< LoginForm token={token} setToken={setToken} />} />
+            <Route path="/Sign-up" element={< Signupform token={token} setToken={setToken} />} />
           </Routes>
         </div>
       </div>
