@@ -46,11 +46,11 @@ function App() {
           </div>
           <Routes>
             <Route path="/product/:productId">
-              <Route path="/product/:productId" element={<SingleProduct />} />
+              <Route path="/product/:productId" element={<SingleProduct cart={cart} setCart={setCart} />} />
             </Route>
             <Route path="/Products" element={<Products cart={cart} setCart={setCart} />} />
             <Route path="/" element={<Home />} />
-            <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} />} />
+            <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} Products={Products} />} />
             <Route path="/Login" element={< LoginForm />} />
             <Route path="/Sign-up" element={< Signupform />} />
           </Routes>

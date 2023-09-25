@@ -80,12 +80,13 @@ ul {
   height: auto;
 
 }
+
 .cate-list {
   display: flex;
   justify-content: center;
 }
 
-#cate-drop{
+#cate-drop {
   background-color: black;
   width: 100%;
   border-radius: 10px;
@@ -124,7 +125,7 @@ ul {
   font-size: 150%;
   width: 460px;
   animation: fadeIn 4s;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 #shop-cart-btn:hover {
@@ -140,7 +141,6 @@ ul {
 }
 
 .add-to-cart-button {
-  margin-bottom: 100px;
   opacity: 1;
 }
 
@@ -148,6 +148,10 @@ ul {
   background-color: rgb(2, 68, 3);
   border-color: white;
   transition: 0.7s;
+}
+
+#click-here {
+  margin-bottom: 70px;
 }
 
 #nav-icon {
@@ -164,4 +168,76 @@ ul {
 
 #customer-rate {
   font-family: 'Montserrat', sans-serif;
+}
+
+.link {
+  color: rgb(3, 99, 4);
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: rgb(2, 167, 5);
+}
+
+#click-arrow {
+  height: 30px;
+  position: relative;
+  top: 8px;
+  margin-right: 4px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 0;
+  background-color: black;
+}
+
+input {
+  border: 1px solid green;
+  border-radius: 0.5em;
+  width: 100%;
+  max-width: 400px;
+  margin: 0.5em;
+  padding: 0.5em;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 25px;
+}
+
+.sub-btn {
+  margin-bottom: 30px;
+  opacity: 1;
+  border: solid 1px green;
+  font-family: 'Courier New', Courier, monospace;
+  width: 200px;
+  height: 75px;
+  margin-top: 10px;
+}
+
+.sub-btn:hover {
+  background-color: rgb(2, 68, 3);
+  border-color: white;
+  transition: 0.7s;
+}
+
+.user-pass-form {
+  font-family: 'Courier New', Courier, monospace;
+  background-color: black;
+  text-decoration: underline 1px white;
+}
+
+.sort-button {
+  opacity: 1;
+  border: solid 1px green;
+  font-family: 'Courier New', Courier, monospace;
+  width: 200px;
+  height: 50px;
+}
+
+.sort-button:hover {
+  background-color: rgb(2, 68, 3);
+  border-color: white;
+  transition: 0.7s;
 }

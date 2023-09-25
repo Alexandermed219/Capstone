@@ -1,53 +1,24 @@
-import React, { useState } from "react";
+import React from 'react';
+import { useState } from 'react';
+import { PersonCheck } from 'react-bootstrap-icons';
 
-function LoginForm() {
-    const [formData, setFormData] = useState({
-        email: "",
-        password: "",
-    });
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-            ...formData,
-            [name]: value,
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Handle form submission, e.g., send data to a server for authentication
-        console.log(formData);
-    };
+const Signupform = () => {
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
-        <div className="login-form">
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label>Email:</label>
-                    <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Password:</label>
-                    <input
-                        type="password"
-                        name="password"
-                        value={formData.password}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                <button type="submit">Login</button>
-            </form>
+        <div>
+            <h1 className='log-sign-css'><PersonCheck id='nav-icon'/> Login</h1>
+            <div className='sign-container'>
+                <form className='sign-up-form'>
+                    <h2 className='user-pass-form'>Enter Username</h2><input type="text" placeholder='Username' value={username} onChange={(e) => setUsername(e.target.value)} />
+                    <h2 className='user-pass-form'>Enter Password</h2><input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+                    <button className='sub-btn' type='submit'>Login</button>
+                </form>
+            </div>
         </div>
     );
-}
+};
 
-export default LoginForm;
+export default Signupform;
