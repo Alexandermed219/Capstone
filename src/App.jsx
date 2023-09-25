@@ -17,7 +17,10 @@ import './components/Cart.css'
 function App() {
   const [cart, setCart] = useState([]);
   const [token, setToken] = useState(null);
-
+  const logout = () => {
+    setToken(null);
+    localStorage.removeItem('token');
+  }
   return (
     <Router>
       <div id='container'>
@@ -37,6 +40,10 @@ function App() {
             <Link to="/Login">
               <h1 id='nav-style'><PersonCheck id='nav-icon' />Log In</h1>
             </Link>
+            <Link to="/Login">
+              <h1 id='nav-style'><PersonPlus id='nav-icon' onClick={logout} />Log Out</h1>
+            </Link>
+
             <Link to="/Sign-up">
               <h1 id='nav-style'><PersonPlus id='nav-icon' />Sign Up</h1>
             </Link>
@@ -48,7 +55,7 @@ function App() {
             <Route path="/product/:productId">
               <Route path="/product/:productId" element={<SingleProduct cart={cart} setCart={setCart} />} />
             </Route>
-            <Route path="/Products" element={<Products cart={cart} setCart={setCart} />} />
+            <Route path="/Products" element={<Products cart={cart} setCart={setCart} token={token} setToken={setToken} />} />
             <Route path="/" element={<Home />} />
             <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} Products={Products} />} />
             <Route path="/Login" element={< LoginForm token={token} setToken={setToken} />} />

@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PersonCheck } from 'react-bootstrap-icons';
-
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginForm = ({token, setToken }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,10 +26,8 @@ const LoginForm = ({token, setToken }) => {
       if (response.ok) {
         const json = await response.json();
         const token = json.token;
-
         localStorage.setItem('token', token);
         setToken(token);
-        console.log(token);
       } else {
         console.error('Login failed');
       }
@@ -36,7 +35,13 @@ const LoginForm = ({token, setToken }) => {
       console.error('Error during login:', error);
     }
   };
-
+//   useEffect(() => {
+//     // Check if there is a token, and if so, navigate to the desired page (e.g., Products)
+//     if (token) {
+//       navigate('/Products');
+//     }
+//   }, [token, navigate]);
+  
   return (
     <div>
       <h1 className='log-sign-css'>
