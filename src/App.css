@@ -214,6 +214,7 @@ input {
   width: 200px;
   height: 75px;
   margin-top: 10px;
+  animation: fadeIn 4s;
 }
 
 .sub-btn:hover {
@@ -226,6 +227,7 @@ input {
   font-family: 'Courier New', Courier, monospace;
   background-color: black;
   text-decoration: underline 1px white;
+  animation: fadeIn 4s;
 }
 
 .sort-button {
@@ -234,6 +236,7 @@ input {
   font-family: 'Courier New', Courier, monospace;
   width: 200px;
   height: 50px;
+  animation: fadeIn 4s;
 }
 
 .sort-button:hover {

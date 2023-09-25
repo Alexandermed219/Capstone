@@ -13,14 +13,8 @@ const Signupform = () => {
       const response = await userName(username, password);
 
       if (response.ok) {
-        // Registration successful, extract and store the token from the response
-        const { token } = await response.json();
-        console.log(token)
-        // Store the token in localStorage (you should handle security appropriately)
-        localStorage.setItem('token', token);
-
-        // You can also redirect the user to another page after successful registration
-        // history.push('/dashboard');
+        // Registration successful, you can handle it here (e.g., show a success message)
+        console.log('User registered successfully');
       } else {
         // Handle registration error (e.g., show an error message)
         console.error('Registration failed');

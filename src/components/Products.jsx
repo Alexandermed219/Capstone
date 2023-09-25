@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Shopbtn from './Shopbtn';
-import { SearchBar } from './SearchBar';
 import { Star } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
