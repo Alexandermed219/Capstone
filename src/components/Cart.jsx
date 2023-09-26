@@ -2,6 +2,9 @@ import React from "react";
 import { CartCheck } from "react-bootstrap-icons";
 
 export const ShoppingCart = ({ cart, setCart }) => {
+  // Calculate the total quantity in the cart
+  const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
+
   function decreaseQuantity(productId) {
     const updatedCart = cart.map((product) => {
       if (product.productId === productId) {
@@ -27,7 +30,7 @@ export const ShoppingCart = ({ cart, setCart }) => {
       {cart.length === 0 ? (
         <h1>Your Cart is Empty <CartCheck id="cart-icon" /></h1>
       ) : (
-        <h1>Shopping Cart ({cart.length}) <CartCheck id="cart-icon" /></h1>
+        <h1>Shopping Cart ({totalQuantity}) <CartCheck id="cart-icon" /></h1>
       )}
       <div>
         <div>
