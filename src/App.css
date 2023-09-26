@@ -21,6 +21,8 @@ body {
   }
 }
 
+
+
 .store {
   font-family: 'Courier New', Courier, monospace;
   display: flex;
@@ -28,8 +30,6 @@ body {
   background-color: black;
   padding-bottom: 30px;
   margin: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
   animation: fadeIn 1s;
 }
 
@@ -58,6 +58,7 @@ body {
   max-height: 1700px;
   overflow-y: scroll;
   padding-top: 50px;
+  margin: 10px;
   animation: fadeIn 4s;
 }
 
@@ -70,7 +71,7 @@ ul {
   font-family: 'Courier New', Courier, monospace;
   background-color: black;
   color: white;
-  padding-left: 10px;
+  padding: 10px;
   animation: fadeIn 6s;
   font-size: 40px;
 }
@@ -113,8 +114,8 @@ ul {
 
 .shop-cart {
   display: flex;
-  justify-content: center;
-
+  justify-content: start;
+  align-items: start;
 }
 
 #shop-cart-btn {
@@ -240,6 +241,35 @@ input {
 }
 
 .sort-button:hover {
+  background-color: rgb(2, 68, 3);
+  border-color: white;
+  transition: 0.7s;
+}
+
+.modal-style2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  height: 700px;
+  width:700px;
+  font-family: 'Courier New', Courier, monospace;
+  opacity: 1;
+  margin: 0 auto; 
+  padding: 40px;
+}
+
+#modal-button {
+  margin-bottom: 30px;
+  opacity: 1;
+  border: solid 1px green;
+  font-family: 'Courier New', Courier, monospace;
+  width: 200px;
+  height: 75px;
+  margin-top: 10px;
+  animation: fadeIn 4s;
+}
+#modal-button:hover {
   background-color: rgb(2, 68, 3);
   border-color: white;
   transition: 0.7s;

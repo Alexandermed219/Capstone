@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { CartPlus } from 'react-bootstrap-icons';
-import Shopbtn from './Shopbtn';
 import { Link } from 'react-router-dom';
 import { ArrowBarLeft } from 'react-bootstrap-icons';
 
-const SingleProduct = ({ cart, setCart }) => {
+const SingleProduct = ({ cart, setCart, token }) => {
     const { productId } = useParams();
     const [product, setProduct] = useState(null);
 
@@ -33,9 +32,6 @@ const SingleProduct = ({ cart, setCart }) => {
 
     return (
         <div>
-            <div>
-                <Shopbtn cart={cart} />
-            </div>
             <div className="listing">
                 <img
                     src={product.image}
@@ -45,11 +41,11 @@ const SingleProduct = ({ cart, setCart }) => {
                 <h2>{product.title}</h2>
                 <p>Price: ${product.price}</p>
                 <p>Description: {product.description}</p>
-                <button
+                {token && <button
                     className="add-to-cart-button"
                     onClick={() => addToCart(product)}>
                     Add to Cart <CartPlus />
-                </button>
+                </button>}
                 <Link to={`/Products`} className='link'>
                     <h3><ArrowBarLeft /> Return to Products Listing</h3>
                 </Link>

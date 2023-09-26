@@ -1,22 +1,53 @@
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Products from './components/Products';
 import Home from './components/Home';
-import { House } from 'react-bootstrap-icons';
-import { Cart } from 'react-bootstrap-icons';
+import Navbar from './components/Navbar';
 import ShoppingCart from './components/Cart';
 import Signupform from './components/Sign-up';
 import LoginForm from './components/Login';
-import { PersonCheck } from 'react-bootstrap-icons';
-import { PersonPlus } from 'react-bootstrap-icons';
 import SingleProduct from './components/SingleProduct';
 import './App.css';
-import './components/Cart.css'
+import './components/Cart.css';
+
 
 
 function App() {
-  const [cart, setCart] = useState([]);
-  const [token, setToken] = useState(null);
+  const getCartFromLocalStorage = () => {
+    const cartData = localStorage.getItem('cart');
+    return cartData ? JSON.parse(cartData) : [];
+  };
+
+  const [cart, setCart] = useState(getCartFromLocalStorage());
+  const [token, setToken] = useState(localStorage.getItem('token'));
+
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }, [cart]);
+
+  const saveUserCartWithToken = () => {
+    if (token) {
+      const userCartData = cart;
+      localStorage.setItem(`cart_${token}`, JSON.stringify(userCartData));
+    }
+  };
+
+  const logout = () => {
+    setToken(null);
+    localStorage.removeItem('token');
+    saveUserCartWithToken();
+    setCart([]);
+  };
+
+  const login = (newToken) => {
+    setToken(newToken);
+    // Load the user's cart data when they log in with the same token
+    const userCartData = localStorage.getItem(`cart_${newToken}`);
+    if (userCartData) {
+      setCart(JSON.parse(userCartData));
+    }
+  };
+console.log(cart)
 
   return (
     <Router>
@@ -27,31 +58,22 @@ function App() {
           <div className='store'>
             <h1>✮✮✮ Black Label Industries ✮✮✮</h1>
           </div>
+          {token && <li><button id='navbar' onClick={logout}>Logout</button></li>}
           <div id='navbar'>
-            <Link to={"/"}>
-              <h1 id='nav-style'><House id='nav-icon' />Home</h1>
-            </Link>
-            <Link to="/Products">
-              <h1 id='nav-style'><Cart id='nav-icon' />Explore Products</h1>
-            </Link>
-            <Link to="/Login">
-              <h1 id='nav-style'><PersonCheck id='nav-icon' />Log In</h1>
-            </Link>
-            <Link to="/Sign-up">
-              <h1 id='nav-style'><PersonPlus id='nav-icon' />Sign Up</h1>
-            </Link>
+
             <div>
             </div>
 
           </div>
+          <Navbar setToken={setToken} token={token} cart={cart} />
           <Routes>
             <Route path="/product/:productId">
-              <Route path="/product/:productId" element={<SingleProduct cart={cart} setCart={setCart} />} />
+              <Route path="/product/:productId" element={<SingleProduct cart={cart} setCart={setCart} token={token} />} />
             </Route>
-            <Route path="/Products" element={<Products cart={cart} setCart={setCart} />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} Products={Products} />} />
-            <Route path="/Login" element={< LoginForm token={token} setToken={setToken} />} />
+            <Route path="/Products" element={<Products cart={cart} setCart={setCart} token={token} />} />
+            <Route path="/" element={<Home token={token} setToken={setToken} />} />
+            <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} Products={Products} token={token} setToken={setToken} />} />
+            <Route path="/Login" element={< LoginForm token={token} setToken={setToken} cart={cart} setCart={setCart} />} />
             <Route path="/Sign-up" element={< Signupform token={token} setToken={setToken} />} />
           </Routes>
         </div>

@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import Shopbtn from './Shopbtn';
 import { Star } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import { CartPlus } from 'react-bootstrap-icons';
+import Modal from 'react-modal';
 
-
-const Products = ({ cart, setCart }) => {
+const Products = ({ cart, setCart, token }) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [sortOrder, setSortOrder] = useState('asc'); // Add sorting state
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products?sort=asc')
@@ -30,11 +30,21 @@ const Products = ({ cart, setCart }) => {
   };
 
   const addToCart = (product) => {
-    const updatedCart = {
-      ...product,
-      quantity: 1
+    if (token) {
+      // Add to cart if there's a token
+      const updatedCart = {
+        ...product,
+        quantity: 1
+      };
+      setCart([...cart, updatedCart]);
+    } else {
+      // Show the modal when there's no token
+      setShowModal(true);
     }
-    setCart([...cart, updatedCart]);
+  };
+  const closeModal = () => {
+    // Close the modal when the "Close" button is clicked
+    setShowModal(false);
   };
 
   function selectCategory(e) {
@@ -76,9 +86,7 @@ const Products = ({ cart, setCart }) => {
       </div>
       <div className='search-bar-container'>
       </div>
-      <div>
-        <Shopbtn cart={cart} />
-      </div>
+
       <ul className="listing">
         {sortedProducts.map((product) => (
           <li key={product.id}>
@@ -92,19 +100,27 @@ const Products = ({ cart, setCart }) => {
             <h2>{product.title}</h2>
             <h3 id='customer-rate'><Star id='star-icon' /> Customer Rating : {product.rating.rate}</h3>
             <p>Price: ${product.price}</p>
-            <button
-              className="add-to-cart-button"
-              onClick={() => addToCart(product)}>
-              Add to Cart <CartPlus />
-            </button>
+            <button className="add-to-cart-button" onClick={() => addToCart(product)}><CartPlus />Add to Cart</button>
             <Link className='link' to={`/product/${product.id}`}>
               <h3 id='click-here'><ArrowRightCircle id='click-arrow' />Click Here for Product Info</h3>
             </Link>
           </li>
         ))}
       </ul>
+      <Modal
+        isOpen={showModal}
+        onRequestClose={() => setShowModal(false)}
+        contentLabel="No Token Modal"
+        className="modal-style2">
+        <div>
+          <h2>Please Log in to add Items to your cart. 🛍️ </h2>
+          <button id='modal-button' onClick={closeModal}>Close</button>
+        </div>
+      </Modal>
     </div>
   );
 };
 
 export default Products;
+
+
