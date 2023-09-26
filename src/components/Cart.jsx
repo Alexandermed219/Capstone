@@ -2,8 +2,23 @@ import React from "react";
 import { CartCheck } from "react-bootstrap-icons";
 
 export const ShoppingCart = ({ cart, setCart }) => {
-  function removeItem(productId) {
-    const updatedCart = cart.filter((product) => product.productId !== productId);
+  function decreaseQuantity(productId) {
+    const updatedCart = cart.map((product) => {
+      if (product.productId === productId) {
+        return { ...product, quantity: product.quantity - 1 };
+      }
+      return product;
+    });
+    setCart(updatedCart);
+  }
+
+  function increaseQuantity(productId) {
+    const updatedCart = cart.map((product) => {
+      if (product.productId === productId) {
+        return { ...product, quantity: product.quantity + 1 };
+      }
+      return product;
+    });
     setCart(updatedCart);
   }
 
@@ -30,7 +45,8 @@ export const ShoppingCart = ({ cart, setCart }) => {
                   <h3>{product.title}</h3>
                   <p>Price: ${product.price}</p>
                   <p>Quantity: {product.quantity}</p>
-                  <button onClick={() => removeItem(product.productId)}>Remove Item</button>
+                  <button className="quant-btn" onClick={() => decreaseQuantity(product.productId)}>Remove Item</button>
+                  <button className="quant-btn" onClick={() => increaseQuantity(product.productId)}>Add Item</button>
                 </li>
               ))}
             </ul>

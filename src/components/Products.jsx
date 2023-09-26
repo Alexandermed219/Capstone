@@ -89,7 +89,7 @@ const Products = ({ cart, setCart, token }) => {
 
       <ul className="listing">
         {sortedProducts.map((product) => (
-          <li key={product.id}>
+          <li key={product.productId}>
             <Link className='link' to={`/product/${product.id}`}>
               <img
                 src={product.image}
@@ -111,7 +111,26 @@ const Products = ({ cart, setCart, token }) => {
         isOpen={showModal}
         onRequestClose={() => setShowModal(false)}
         contentLabel="No Token Modal"
-        className="modal-style2">
+        style={{
+          overlay: {
+            backgroundColor: 'black',
+            opacity: .9 // Set the background color for the overlay (backdrop)
+          },
+          content: {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: 'black', // Set the modal's background color
+            color: 'green',
+            height: '700px',
+            width: '700px',
+            fontSize: '30px',
+            fontFamily: 'Courier New, Courier, monospace',
+            margin: '0 auto',
+            padding: '40px',
+            border: '2px solid green'
+          },
+        }}>
         <div>
           <h2>Please Log in to add Items to your cart. 🛍️ </h2>
           <button id='modal-button' onClick={closeModal}>Close</button>

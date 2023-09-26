@@ -245,20 +245,6 @@ input {
   border-color: white;
   transition: 0.7s;
 }
-
-.modal-style2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  height: 700px;
-  width:700px;
-  font-family: 'Courier New', Courier, monospace;
-  opacity: 1;
-  margin: 0 auto; 
-  padding: 40px;
-}
-
 #modal-button {
   margin-bottom: 30px;
   opacity: 1;
@@ -273,4 +259,14 @@ input {
   background-color: rgb(2, 68, 3);
   border-color: white;
   transition: 0.7s;
+}
+
+.quant-btn {
+  margin-bottom: 10px;
+  opacity: 1;
+  border: solid 1px green;
+  font-family: 'Courier New', Courier, monospace;
+  width: 200px;
+  height: 50px;
+  animation: fadeIn 4s;
 }

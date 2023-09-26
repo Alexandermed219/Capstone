@@ -12,7 +12,7 @@ const LoginForm = ({ token, setToken, setCart }) => {
 
     try {
       // Assuming you have a user identifier (e.g., username or user ID)
-      const userId = '5';
+      const userId = '1';
 
       // Fetch the user's cart data based on their identifier
       fetch(`https://fakestoreapi.com/carts/${userId}`)
