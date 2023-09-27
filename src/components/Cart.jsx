@@ -1,19 +1,37 @@
 import React from "react";
 import { CartCheck } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
+
 
 export const ShoppingCart = ({ cart, setCart }) => {
   // Calculate the total quantity in the cart
   const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
+  const navigate = useNavigate();
 
   function decreaseQuantity(productId) {
     const updatedCart = cart.map((product) => {
       if (product.productId === productId) {
-        return { ...product, quantity: product.quantity - 1 };
+        const newQuantity = Math.max(0, product.quantity - 1); // Ensure quantity doesn't go below zero
+        if (newQuantity === 0) {
+          // Remove the item from the cart if quantity becomes 0
+          return null;
+        } else {
+          return { ...product, quantity: newQuantity };
+        }
       }
       return product;
     });
-    setCart(updatedCart);
+
+    // Filter out null values (removed items) from the updatedCart
+    const filteredCart = updatedCart.filter((product) => product !== null);
+    setCart(filteredCart);
   }
+
+  function handleCheck() {
+    navigate('/CheckoutPage');
+  }
+
+
 
   function increaseQuantity(productId) {
     const updatedCart = cart.map((product) => {
@@ -55,6 +73,9 @@ export const ShoppingCart = ({ cart, setCart }) => {
             </ul>
           )}
         </div>
+        {cart.length > 0 && (
+          <button className="checkout-btn" onClick={handleCheck} >Checkout</button>
+        )}
       </div>
     </div>
   );

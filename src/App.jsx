@@ -7,6 +7,7 @@ import ShoppingCart from './components/Cart';
 import Signupform from './components/Sign-up';
 import LoginForm from './components/Login';
 import SingleProduct from './components/SingleProduct';
+import CheckoutPage from './components/CheckoutPage';
 import './App.css';
 import './components/Cart.css';
 
@@ -18,26 +19,15 @@ function App() {
     return cartData ? JSON.parse(cartData) : [];
   };
 
+
   const [cart, setCart] = useState(getCartFromLocalStorage());
   const [token, setToken] = useState(localStorage.getItem('token'));
+  const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
 
-  const saveUserCartWithToken = () => {
-    if (token) {
-      const userCartData = cart;
-      localStorage.setItem(`cart_${token}`, JSON.stringify(userCartData));
-    }
-  };
-
-  const logout = () => {
-    setToken(null);
-    localStorage.removeItem('token');
-    saveUserCartWithToken();
-    setCart([]);
-  };
 
   const login = (newToken) => {
     setToken(newToken);
@@ -47,7 +37,6 @@ function App() {
       setCart(JSON.parse(userCartData));
     }
   };
-console.log(cart)
 
   return (
     <Router>
@@ -75,6 +64,7 @@ console.log(cart)
             <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} Products={Products} token={token} setToken={setToken} />} />
             <Route path="/Login" element={< LoginForm token={token} setToken={setToken} cart={cart} setCart={setCart} />} />
             <Route path="/Sign-up" element={< Signupform token={token} setToken={setToken} />} />
+            <Route path="/CheckoutPage" element={ <CheckoutPage cart={cart} totalQuantity={totalQuantity} />} />
           </Routes>
         </div>
       </div>

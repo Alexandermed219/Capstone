@@ -207,6 +207,23 @@ input {
   font-size: 25px;
 }
 
+.checkout-btn {
+  margin-bottom: 30px;
+  opacity: 1;
+  border: solid 1px green;
+  font-family: 'Courier New', Courier, monospace;
+  width: 200px;
+  height: 75px;
+  margin-top: 10px;
+  animation: fadeIn 4s;
+}
+
+.checkout-btn:hover {
+  background-color: rgb(2, 68, 3);
+  border-color: white;
+  transition: 0.7s;
+}
+
 .sub-btn {
   margin-bottom: 30px;
   opacity: 1;
@@ -245,6 +262,7 @@ input {
   border-color: white;
   transition: 0.7s;
 }
+
 #modal-button {
   margin-bottom: 30px;
   opacity: 1;
@@ -255,6 +273,7 @@ input {
   margin-top: 10px;
   animation: fadeIn 4s;
 }
+
 #modal-button:hover {
   background-color: rgb(2, 68, 3);
   border-color: white;
