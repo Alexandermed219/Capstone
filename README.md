@@ -1,8 +1,11 @@
-# React + Vite
+Black Label Industries direct link - https://blacklabelnc.netlify.app/AboutUs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+User login to test cart functionality and accessibility
+Username - mor_2314
+Password - 83r5^_
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Known bugs:
+- Adding and removing items incrementing by 2 instead of 1.
+- Checkout final price with fetched cart showing NaN (adding products from products page will show final price accurately).
+- Added items to cart upon logging out will dissapear.
+- Cannot sign up due to API limitations.
