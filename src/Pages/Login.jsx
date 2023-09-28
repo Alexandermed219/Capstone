@@ -11,7 +11,7 @@ const LoginForm = ({ token, setToken, setCart }) => {
     e.preventDefault();
 
     try {
-      const userId = '1';
+      const userId = '2';
 
       fetch(`https://fakestoreapi.com/carts/${userId}`)
         .then((res) => {
