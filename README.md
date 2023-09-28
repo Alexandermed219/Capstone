@@ -1,4 +1,4 @@
-Black Label Industries direct link - https://blacklabelnc.netlify.app
+Black Label Industries direct link - https://blacklabelinc.netlify.app
 
 User login to test cart functionality and accessibility
 Username - mor_2314
