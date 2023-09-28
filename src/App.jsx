@@ -26,7 +26,7 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
   return (
-    <Router>
+    <Router  basename="/">
       <div id='container'>
 
         <div className="store-front" >
