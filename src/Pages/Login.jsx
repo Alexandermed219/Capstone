@@ -11,10 +11,8 @@ const LoginForm = ({ token, setToken, setCart }) => {
     e.preventDefault();
 
     try {
-      // Assuming you have a user identifier (e.g., username or user ID)
       const userId = '1';
 
-      // Fetch the user's cart data based on their identifier
       fetch(`https://fakestoreapi.com/carts/${userId}`)
         .then((res) => {
           if (res.ok) {
@@ -25,7 +23,7 @@ const LoginForm = ({ token, setToken, setCart }) => {
         })
         .then((json) => {
           console.log("User's cart data:", json);
-          setCart(json.products); // Update cart state with the retrieved cart data
+          setCart(json.products);
         })
         .catch((error) => console.error('Error fetching cart data:', error));
 
@@ -62,35 +60,37 @@ const LoginForm = ({ token, setToken, setCart }) => {
     }
   }, [token, navigate]);
 
-
-    return (
-        <div>
-            <h1 className='log-sign-css'>
-                <PersonCheck id='nav-icon' /> Login
-            </h1>
-            <div className='sign-container'>
-                <form onSubmit={handleSubmit} className='sign-up-form'>
-                    <h2 className='user-pass-form'>Enter Username</h2>
-                    <input
-                        type='text'
-                        placeholder='Username'
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                    <h2 className='user-pass-form'>Enter Password</h2>
-                    <input
-                        type='password'
-                        placeholder='Password'
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <button className='sub-btn' type='submit'>
-                        Login
-                    </button>
-                </form>
-            </div>
-        </div>
-    );
+  return (
+    <div>
+      <h1 className='log-sign-css'>
+        <PersonCheck id='nav-icon' /> Login
+      </h1>
+      <div className='sign-container'>
+        <form onSubmit={handleSubmit} className='sign-up-form'>
+          <h2 className='user-pass-form'>Enter Username</h2>
+          <input
+            type='text'
+            placeholder='Username'
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <h2 className='user-pass-form'>Enter Password</h2>
+          <input
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <button className='sub-btn' type='submit'>
+            Login
+          </button>
+        </form>
+      </div>
+      <footer id="copyright">
+        &copy; 2023 Black Label Industries. All Rights Reserved.
+      </footer>
+    </div>
+  );
 };
 
 export default LoginForm;

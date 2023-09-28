@@ -30,7 +30,7 @@ body {
   background-color: black;
   padding-bottom: 30px;
   margin: 0px;
-  animation: fadeIn 1s;
+  animation: fadeIn 0.7s;
 }
 
 .store-2 {
@@ -102,7 +102,47 @@ ul {
   font-size: 1.50rem;
 }
 
-.search-bar-container {
+#who-title {
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  padding-top: 20px;
+  padding-bottom: 30px;
+  margin: 0px;
+  animation: fadeIn 3s;
+  width: 900px;
+}
+
+#foot {
+  display: flex;
+  justify-content: center;
+  align-content: end;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 40px;
+  color: black;
+}
+
+#copyright {
+  text-align: center;
+  background-color: black;
+  color: #fff;
+  padding: 10px;
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+#copyright-2 {
+  text-align: center;
+  background-color: black;
+  color: #fff;
+  margin-top:400px;
+  padding: 10px;
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+.who-we-are {
   padding-top: 20px;
   width: 40%;
   margin: auto;
@@ -110,6 +150,21 @@ ul {
   flex-direction: column;
   align-items: center;
   min-width: 200px;
+  padding: 15px;
+}
+
+.who-we-are-2{
+  font-family: 'Courier New', Courier, monospace;
+  color: rgb(255, 255, 255);
+  font-size: larger;
+  font-weight: 600;
+  background-color: black;
+  opacity: .9;
+  max-height: 1700px;
+  padding-top: 50px;
+  margin: 10px;
+  animation: fadeIn 5s;
+  padding: 15px;
 }
 
 .shop-cart {
@@ -124,6 +179,7 @@ ul {
   color: white;
   border-radius: 10px;
   font-size: 150%;
+  height: 140px;
   width: 460px;
   animation: fadeIn 4s;
   margin-top: 10px;
@@ -180,6 +236,17 @@ ul {
   color: rgb(2, 167, 5);
 }
 
+.link2{
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  text-decoration: underline;
+  font-size: 30px;
+}
+
+.link2:hover {
+  color: rgb(2, 167, 5);
+}
+
 #click-arrow {
   height: 30px;
   position: relative;
@@ -205,6 +272,23 @@ input {
   padding: 0.5em;
   font-family: 'Courier New', Courier, monospace;
   font-size: 25px;
+}
+
+.checkout-btn {
+  margin-bottom: 30px;
+  opacity: 1;
+  border: solid 1px green;
+  font-family: 'Courier New', Courier, monospace;
+  width: 200px;
+  height: 75px;
+  margin-top: 10px;
+  animation: fadeIn 4s;
+}
+
+.checkout-btn:hover {
+  background-color: rgb(2, 68, 3);
+  border-color: white;
+  transition: 0.7s;
 }
 
 .sub-btn {
@@ -245,6 +329,7 @@ input {
   border-color: white;
   transition: 0.7s;
 }
+
 #modal-button {
   margin-bottom: 30px;
   opacity: 1;
@@ -255,6 +340,7 @@ input {
   margin-top: 10px;
   animation: fadeIn 4s;
 }
+
 #modal-button:hover {
   background-color: rgb(2, 68, 3);
   border-color: white;

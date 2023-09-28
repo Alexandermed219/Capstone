@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Products from './components/Products';
-import Home from './components/Home';
+import Products from './Pages/Products';
+import Home from './Pages/Home';
 import Navbar from './components/Navbar';
-import ShoppingCart from './components/Cart';
-import Signupform from './components/Sign-up';
-import LoginForm from './components/Login';
-import SingleProduct from './components/SingleProduct';
+import ShoppingCart from './Pages/Cart';
+import Signupform from './Pages/Sign-up';
+import LoginForm from './Pages/Login';
+import SingleProduct from './Pages/SingleProduct';
+import CheckoutPage from './Pages/CheckoutPage';
+import AboutUs from './Pages/AboutUs';
 import './App.css';
-import './components/Cart.css';
-
-
+import './Cart.css';
 
 function App() {
   const getCartFromLocalStorage = () => {
@@ -20,35 +20,11 @@ function App() {
 
   const [cart, setCart] = useState(getCartFromLocalStorage());
   const [token, setToken] = useState(localStorage.getItem('token'));
+  const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
-
-  const saveUserCartWithToken = () => {
-    if (token) {
-      const userCartData = cart;
-      localStorage.setItem(`cart_${token}`, JSON.stringify(userCartData));
-    }
-  };
-
-  const logout = () => {
-    setToken(null);
-    localStorage.removeItem('token');
-    saveUserCartWithToken();
-    setCart([]);
-  };
-
-  const login = (newToken) => {
-    setToken(newToken);
-    // Load the user's cart data when they log in with the same token
-    const userCartData = localStorage.getItem(`cart_${newToken}`);
-    if (userCartData) {
-      setCart(JSON.parse(userCartData));
-    }
-  };
-console.log(cart)
-
   return (
     <Router>
       <div id='container'>
@@ -56,14 +32,7 @@ console.log(cart)
         <div className="store-front" >
           <img src="/" alt="" />
           <div className='store'>
-            <h1>✮✮✮ Black Label Industries ✮✮✮</h1>
-          </div>
-          {token && <li><button id='navbar' onClick={logout}>Logout</button></li>}
-          <div id='navbar'>
-
-            <div>
-            </div>
-
+            <h1>✮✮✮ BLACK LABEL INDUSTRIES ✮✮✮</h1>
           </div>
           <Navbar setToken={setToken} token={token} cart={cart} />
           <Routes>
@@ -71,10 +40,12 @@ console.log(cart)
               <Route path="/product/:productId" element={<SingleProduct cart={cart} setCart={setCart} token={token} />} />
             </Route>
             <Route path="/Products" element={<Products cart={cart} setCart={setCart} token={token} />} />
+            <Route path="/AboutUs" element={<AboutUs />} />
             <Route path="/" element={<Home token={token} setToken={setToken} />} />
             <Route path="/Cart" element={< ShoppingCart cart={cart} setCart={setCart} Products={Products} token={token} setToken={setToken} />} />
             <Route path="/Login" element={< LoginForm token={token} setToken={setToken} cart={cart} setCart={setCart} />} />
             <Route path="/Sign-up" element={< Signupform token={token} setToken={setToken} />} />
+            <Route path="/CheckoutPage" element={<CheckoutPage cart={cart} totalQuantity={totalQuantity} />} />
           </Routes>
         </div>
       </div>

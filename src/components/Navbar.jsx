@@ -6,12 +6,30 @@ import { PersonCheck } from 'react-bootstrap-icons';
 import { PersonPlus } from 'react-bootstrap-icons';
 import Shopbtn from './Shopbtn';
 
-const Navbar = ({ token, cart }) => {
+const Navbar = ({ token, setToken, cart }) => {
+    const saveUserCartWithToken = () => {
+        if (token) {
+            const userCartData = cart;
+            localStorage.setItem(`cart_${token}`, JSON.stringify(userCartData));
+        }
+    };
+
+    function logout() {
+        setToken(null);
+        localStorage.removeItem('token');
+        saveUserCartWithToken();
+    };
 
     return (
         <div id='navbar'>
             <nav >
+
                 <ul>
+                    <li>
+                        <Link to={"/AboutUs"}>
+                            <h1 id='nav-style'>✮About Us</h1>
+                        </Link>
+                    </li>
                     <li>
                         <Link to={"/"}>
                             <h1 id='nav-style'><House id='nav-icon' />Home</h1>
@@ -30,6 +48,11 @@ const Navbar = ({ token, cart }) => {
                     {!token && <li>
                         <Link to="/Sign-up">
                             <h1 id='nav-style'><PersonPlus id='nav-icon' />Sign Up</h1>
+                        </Link>
+                    </li>}
+                    {token && <li onClick={logout}>
+                        <Link to="/Login">
+                            <h1 id='nav-style'>Logout</h1>
                         </Link>
                     </li>}
                     {token && <div>
