@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Star } from 'react-bootstrap-icons';
 import { Link } from 'react-router-dom';
 import { ArrowRightCircle } from 'react-bootstrap-icons';
+import { ArrowBarLeft } from 'react-bootstrap-icons';
 import { CartPlus } from 'react-bootstrap-icons';
 import Modal from 'react-modal';
 
@@ -128,6 +129,9 @@ const Products = ({ cart, setCart, token }) => {
           <button id='modal-button' onClick={closeModal}>Close</button>
         </div>
       </Modal>
+      <Link to={`/`} className='link2'>
+        <h3><ArrowBarLeft /> Return to HomePage</h3>
+      </Link>
     </div>
   );
 };

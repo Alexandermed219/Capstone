@@ -179,7 +179,7 @@ ul {
   color: white;
   border-radius: 10px;
   font-size: 150%;
-  height: 150px;
+  height: 140px;
   width: 460px;
   animation: fadeIn 4s;
   margin-top: 10px;
@@ -190,7 +190,6 @@ ul {
   border-color: white;
   transition: 0.7s;
 }
-
 
 #bag-icon {
   height: 40px;
@@ -234,6 +233,17 @@ ul {
 }
 
 .link:hover {
+  color: rgb(2, 167, 5);
+}
+
+.link2{
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  text-decoration: underline;
+  font-size: 30px;
+}
+
+.link2:hover {
   color: rgb(2, 167, 5);
 }
 

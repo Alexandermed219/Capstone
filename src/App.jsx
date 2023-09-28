@@ -12,14 +12,11 @@ import AboutUs from './components/AboutUs';
 import './App.css';
 import './components/Cart.css';
 
-
-
 function App() {
   const getCartFromLocalStorage = () => {
     const cartData = localStorage.getItem('cart');
     return cartData ? JSON.parse(cartData) : [];
   };
-
 
   const [cart, setCart] = useState(getCartFromLocalStorage());
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -28,17 +25,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart));
   }, [cart]);
-
-
-  const login = (newToken) => {
-    setToken(newToken);
-    // Load the user's cart data when they log in with the same token
-    const userCartData = localStorage.getItem(`cart_${newToken}`);
-    if (userCartData) {
-      setCart(JSON.parse(userCartData));
-    }
-  };
-
   return (
     <Router>
       <div id='container'>
@@ -47,16 +33,8 @@ function App() {
           <img src="/" alt="" />
           <div className='store'>
             <h1>✮✮✮ BLACK LABEL INDUSTRIES ✮✮✮</h1>
-
-          </div>
-          <div id='navbar'>
-
-            <div>
-            </div>
-
           </div>
           <Navbar setToken={setToken} token={token} cart={cart} />
-
           <Routes>
             <Route path="/product/:productId">
               <Route path="/product/:productId" element={<SingleProduct cart={cart} setCart={setCart} token={token} />} />
