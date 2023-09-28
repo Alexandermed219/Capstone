@@ -9,7 +9,6 @@ const SingleProduct = ({ cart, setCart, token }) => {
     const [product, setProduct] = useState(null);
 
     useEffect(() => {
-        // Fetch the product data based on the productId
         fetch(`https://fakestoreapi.com/products/${productId}`)
             .then((res) => res.json())
             .then((data) => {
@@ -50,6 +49,9 @@ const SingleProduct = ({ cart, setCart, token }) => {
                     <h3><ArrowBarLeft /> Return to Products Listing</h3>
                 </Link>
             </div>
+            <footer id="copyright">
+                &copy; 2023 Black Label Industries. All Rights Reserved.
+            </footer>
         </div>
     );
 };

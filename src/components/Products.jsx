@@ -9,7 +9,7 @@ const Products = ({ cart, setCart, token }) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [sortOrder, setSortOrder] = useState('asc'); // Add sorting state
+  const [sortOrder, setSortOrder] = useState('asc');
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -31,19 +31,16 @@ const Products = ({ cart, setCart, token }) => {
 
   const addToCart = (product) => {
     if (token) {
-      // Add to cart if there's a token
       const updatedCart = {
         ...product,
         quantity: 1
       };
       setCart([...cart, updatedCart]);
     } else {
-      // Show the modal when there's no token
       setShowModal(true);
     }
   };
   const closeModal = () => {
-    // Close the modal when the "Close" button is clicked
     setShowModal(false);
   };
 
@@ -77,16 +74,11 @@ const Products = ({ cart, setCart, token }) => {
           ))}
         </select>
       </div>
-      <div className='search-bar-container'>
-        <div>
-          <button className='sort-button' onClick={toggleSortOrder}>
-            Sort by {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}
-          </button>
-        </div>
+      <div>
+        <button className='sort-button' onClick={toggleSortOrder}>
+          Sort by {sortOrder === 'asc' ? 'A-Z' : 'Z-A'}
+        </button>
       </div>
-      <div className='search-bar-container'>
-      </div>
-
       <ul className="listing">
         {sortedProducts.map((product) => (
           <li key={product.productId}>
@@ -114,13 +106,13 @@ const Products = ({ cart, setCart, token }) => {
         style={{
           overlay: {
             backgroundColor: 'black',
-            opacity: .9 // Set the background color for the overlay (backdrop)
+            opacity: .9
           },
           content: {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            backgroundColor: 'black', // Set the modal's background color
+            backgroundColor: 'black',
             color: 'green',
             height: '700px',
             width: '700px',

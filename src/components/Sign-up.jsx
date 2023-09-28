@@ -34,6 +34,9 @@ const Signupform = () => {
           <button className='sub-btn' type='submit'>Register</button>
         </form>
       </div>
+      <footer id="copyright">
+                &copy; 2023 Black Label Industries. All Rights Reserved.
+            </footer>
     </div>
   );
 };

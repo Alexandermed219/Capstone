@@ -2,18 +2,15 @@ import React from "react";
 import { CartCheck } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
 
-
 export const ShoppingCart = ({ cart, setCart }) => {
-  // Calculate the total quantity in the cart
   const totalQuantity = cart.reduce((total, product) => total + product.quantity, 0);
   const navigate = useNavigate();
 
   function decreaseQuantity(productId) {
     const updatedCart = cart.map((product) => {
       if (product.productId === productId) {
-        const newQuantity = Math.max(0, product.quantity - 1); // Ensure quantity doesn't go below zero
+        const newQuantity = Math.max(0, product.quantity - 1);
         if (newQuantity === 0) {
-          // Remove the item from the cart if quantity becomes 0
           return null;
         } else {
           return { ...product, quantity: newQuantity };
@@ -22,7 +19,6 @@ export const ShoppingCart = ({ cart, setCart }) => {
       return product;
     });
 
-    // Filter out null values (removed items) from the updatedCart
     const filteredCart = updatedCart.filter((product) => product !== null);
     setCart(filteredCart);
   }
@@ -30,8 +26,6 @@ export const ShoppingCart = ({ cart, setCart }) => {
   function handleCheck() {
     navigate('/CheckoutPage');
   }
-
-
 
   function increaseQuantity(productId) {
     const updatedCart = cart.map((product) => {
@@ -77,6 +71,9 @@ export const ShoppingCart = ({ cart, setCart }) => {
           <button className="checkout-btn" onClick={handleCheck} >Checkout</button>
         )}
       </div>
+      <footer id="copyright">
+        &copy; 2023 Black Label Industries. All Rights Reserved.
+      </footer>
     </div>
   );
 };

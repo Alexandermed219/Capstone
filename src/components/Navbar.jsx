@@ -6,8 +6,7 @@ import { PersonCheck } from 'react-bootstrap-icons';
 import { PersonPlus } from 'react-bootstrap-icons';
 import Shopbtn from './Shopbtn';
 
-const Navbar = ({ token, setToken, cart}) => {
-
+const Navbar = ({ token, setToken, cart }) => {
     const saveUserCartWithToken = () => {
         if (token) {
             const userCartData = cart;
@@ -15,7 +14,7 @@ const Navbar = ({ token, setToken, cart}) => {
         }
     };
 
-  function logout() {
+    function logout() {
         setToken(null);
         localStorage.removeItem('token');
         saveUserCartWithToken();
@@ -27,6 +26,11 @@ const Navbar = ({ token, setToken, cart}) => {
 
                 <ul>
                     <li>
+                        <Link to={"/AboutUs"}>
+                            <h1 id='nav-style'>✮About Us</h1>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to={"/"}>
                             <h1 id='nav-style'><House id='nav-icon' />Home</h1>
                         </Link>
@@ -35,7 +39,6 @@ const Navbar = ({ token, setToken, cart}) => {
                         <Link to="/Products">
                             <h1 id='nav-style'><Cart id='nav-icon' />Explore Products</h1>
                         </Link>
-
                     </li>
                     {!token && <li>
                         <Link to="/Login">
@@ -48,10 +51,10 @@ const Navbar = ({ token, setToken, cart}) => {
                         </Link>
                     </li>}
                     {token && <li onClick={logout}>
-                            <Link to="/Login">
-                                <h1 id='nav-style'>Logout</h1>
-                            </Link>
-                        </li>}
+                        <Link to="/Login">
+                            <h1 id='nav-style'>Logout</h1>
+                        </Link>
+                    </li>}
                     {token && <div>
                         {<Shopbtn cart={cart} />}
                     </div>}

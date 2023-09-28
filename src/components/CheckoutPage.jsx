@@ -2,7 +2,6 @@
 import React from "react";
 
 const CheckoutPage = ({ cart, totalQuantity }) => {
-    // Calculate the total price of items in the cart
     const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
 
     return (
@@ -22,7 +21,9 @@ const CheckoutPage = ({ cart, totalQuantity }) => {
             ))}
             <h2>Total Quantity: {totalQuantity}</h2>
             <h2>Total Price: ${totalPrice.toFixed(2)}</h2>
-            {/* Add your checkout form or payment gateway integration here */}
+            <footer id="copyright">
+                &copy; 2023 Black Label Industries. All Rights Reserved.
+            </footer>
         </div>
     );
 };
