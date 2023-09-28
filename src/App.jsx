@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Products from './components/Products';
-import Home from './components/Home';
+import Products from './Pages/Products';
+import Home from './Pages/Home';
 import Navbar from './components/Navbar';
-import ShoppingCart from './components/Cart';
-import Signupform from './components/Sign-up';
-import LoginForm from './components/Login';
-import SingleProduct from './components/SingleProduct';
-import CheckoutPage from './components/CheckoutPage';
-import AboutUs from './components/AboutUs';
+import ShoppingCart from './Pages/Cart';
+import Signupform from './Pages/Sign-up';
+import LoginForm from './Pages/Login';
+import SingleProduct from './Pages/SingleProduct';
+import CheckoutPage from './Pages/CheckoutPage';
+import AboutUs from './Pages/AboutUs';
 import './App.css';
-import './components/Cart.css';
+import './Cart.css';
 
 function App() {
   const getCartFromLocalStorage = () => {
